@@ -17,11 +17,14 @@ class App extends React.Component {
     };
   }
 
+  //function for remove from cart
   removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({cartItems: cartItems.filter(x => x._id!== product._id)});
   };
 
+  //function for add to cart 
+  //takes product array as params  
   addToCart = (product) => {
       const cartItems = this.state.cartItems.slice();
       let alreadyInCart = false;
