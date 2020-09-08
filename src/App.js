@@ -47,14 +47,13 @@ class App extends React.Component {
   };
 
   sortProducts = (event) => {
-    //imple
-    console.log(event.target.value);
+    
     const sort = event.target.value;
     this.setState((state) => ({
       sort: sort,
-      products: this.state.products.
-        slice().
-          sort((a,b)=> 
+      products: this.state.products
+       .slice()
+        .sort((a,b)=> 
             sort === "lowest"
               ? a.price > b.price
                 ? 1 
