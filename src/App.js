@@ -88,6 +88,10 @@ class App extends React.Component {
     }
   };
 
+  createOrder = (order) => {
+    alert('Need to save order for '+ order.name);
+  }
+
   render(){
     return(
       <div className="grid-container">
@@ -111,6 +115,7 @@ class App extends React.Component {
             <div className="sidebar">
               <Cart 
               cartItems={this.state.cartItems} 
+              createOrder = {this.createOrder}
               removeFromCart={this.removeFromCart}></Cart>
             </div>
           </div>
