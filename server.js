@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const shortid = require('shortid');
+const productsRouter = require('./routes/productRoute');
+const ordersRouter = require('./routes/orderRoute');
 
 
 const app = express();
@@ -15,7 +17,10 @@ mongoose.connect("mongodb://localhost/react-shopping-cart-db",{
   useUnifiedTopology: true,
 });
 
-const Product = mongoose.model(
+app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
+
+/*const Product = mongoose.model(
   "products",
   new mongoose.Schema({
     _id: { type: String,default: shortid.generate },
@@ -46,9 +51,9 @@ app.delete('/api/products/:id', async (req, res)=>{
     const deletedProduct = await Product.findByIdAndDelete(req.params.id);
     res.send(deletedProduct);
 });
+*/
 
-
-const Order = mongoose.model(
+/*const Order = mongoose.model(
   "orders",
   new mongoose.Schema({
     _id: {
@@ -85,6 +90,6 @@ app.post('/api/orders', async (req, res) => {
     const order = await Order(req.body).save();
     res.send(order);
 
-});
+});*/
 
 app.listen(port, () => console.log('server at http://localhost:%s',port));
