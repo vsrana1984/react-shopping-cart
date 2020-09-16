@@ -6,3 +6,14 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const CREATE_ORDER = "CREATE_ORDER";
 export const CLEAR_ORDER = "CLEAR_ORDER";
 export const CLEAR_CART = "CLEAR_CART";
+
+//for user login and registration.......
+export const USER_SIGNIN_REQUEST = 'USER_SIGNIN_REQUEST';
+export const USER_SIGNIN_SUCCESS = 'USER_SIGNIN_SUCCESS';
+export const USER_SIGNIN_FAIL = 'USER_SIGNIN_FAIL';
+
+export const USER_REGISTER_REQUEST = 'USER_SIGNIN_REQUEST';
+export const USER_REGISTER_SUCCESS = 'USER_SIGNIN_SUCCESS';
+export const USER_REGISTER_FAIL = 'USER_SIGNIN_FAIL';
+
+export const USER_LOGOUT = 'USER_LOGOUT';

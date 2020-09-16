@@ -121,6 +121,13 @@ footer {
   background-color: #f0c040;
 }
 
+.button.secondary {
+  background-color: #f0f0f0;
+}
+.text-center {
+  text-align: center;
+}
+
 /* Filter */
 .filter {
   display: flex;

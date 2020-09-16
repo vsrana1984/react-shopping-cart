@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { doLogin } from '../actions/userActions';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props){
     super(props);
-
+    console.log(this.props);
     this.state = {
       email: "",
       password: "",
@@ -14,20 +17,19 @@ export default class Login extends Component {
   };
 
   doLogin = (e) => {
-   return true;
-    /*e.preventDefault();
-    const loginDetails = {
-      email: this.state.email,
-      password: this.state.password,
-    }*/
-
-    //this.props.createOrder(order);
+    e.preventDefault();
+    this.props.doLogin(this.state.email, this.state.password);
   };
   render() {
     return (
       <div className="form">
         <form onSubmit={this.doLogin}>
           <ul className="form-container">
+            {
+              this.props.user.error !=='' && (
+                <div>{this.props.user.error}</div>
+              )
+            }
               <li>
                 <h3>
                   Login In
@@ -53,6 +55,10 @@ export default class Login extends Component {
               <li>
                 New to Shopping Cart ?
               </li>
+              <li>
+              <Link to="/register" className="button secondary full-width text-center">Create Your Account</Link>
+              </li>
+              
              
           </ul>
         </form>
@@ -60,3 +66,12 @@ export default class Login extends Component {
     )
   }
 }
+
+export default connect(
+  (state) => ({
+    user: state.user
+  }),
+  {
+    doLogin
+  }
+  )(Login);

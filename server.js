@@ -1,10 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const shortid = require('shortid');
 const productsRouter = require('./routes/productRoute');
 const ordersRouter = require('./routes/orderRoute');
-
+const usersRouter = require('./routes/userRoute');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -19,7 +18,7 @@ mongoose.connect("mongodb://localhost/react-shopping-cart-db",{
 
 app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
-
+app.use('/api/users', usersRouter);
 /*const Product = mongoose.model(
   "products",
   new mongoose.Schema({
