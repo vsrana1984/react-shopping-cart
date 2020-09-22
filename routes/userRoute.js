@@ -1,5 +1,7 @@
 const express = require('express');
 const User = require('../models/userModel');
+const { getToken } = require('../util');
+
 
 const router = express.Router();
 
@@ -16,10 +18,10 @@ router.post('/login', async(req, res)=>{
       
       res.send({
         id: signinUser._id,
-        name: signinUser.name,
+        username: signinUser.username,
         email: signinUser.email,
         isAdmin: signinUser.isAdmin,
-        token: getToken(signinUser)
+        accessToken: getToken(signinUser)
       });
    }else{
      
@@ -36,10 +38,10 @@ router.post('/login', async(req, res)=>{
 
 //register new user...
 router.post('/register', async (req, res) =>{
-
+  console.log(req.body);
   try {
     const user = new User({
-      name: req.body.name,
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password,
       isAdmin: false

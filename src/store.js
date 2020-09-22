@@ -4,6 +4,7 @@ import { productReducer } from './reducers/productReducers';
 import { cartReducers } from './reducers/cartReducers';
 import { orderReducers } from './reducers/orderReducers';
 import { userLoginReducer } from './reducers/userReducers';
+import messageReducers from './reducers/messageReducers';
 
 const initialState = {};
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -13,6 +14,7 @@ const store = createStore(
     cart: cartReducers,
     order: orderReducers,
     user: userLoginReducer,
+    message: messageReducers,
   }),
   initialState,
   composeEnhancer(applyMiddleware(thunk))

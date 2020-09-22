@@ -17,3 +17,7 @@ export const USER_REGISTER_SUCCESS = 'USER_SIGNIN_SUCCESS';
 export const USER_REGISTER_FAIL = 'USER_SIGNIN_FAIL';
 
 export const USER_LOGOUT = 'USER_LOGOUT';
+
+
+export const SET_MESSAGE = "SET_MESSAGE";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
